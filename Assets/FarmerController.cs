@@ -27,12 +27,12 @@ public class FarmerController : MonoBehaviour
 
         transform.Translate(movement * speed * Time.deltaTime);
 
-        if (Mathf.Abs(transform.position.x) > 7.4f)
+        if (Mathf.Abs(transform.position.x) > 6.7f)
         {
             transform.Translate(-movementX * speed * Time.deltaTime);
         }
 
-        if (Mathf.Abs(transform.position.y) > 3.2f)
+        if (Mathf.Abs(transform.position.y) > 3.4f)
         {
             transform.Translate(-movementY * speed * Time.deltaTime);
         }
