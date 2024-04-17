@@ -3,7 +3,8 @@ guid: 44f45c7bb183631499277a79b9e1cfb7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - RedSquareSprite: {fileID: 21300000, guid: d94431858c666b0479f8c8bc40895844, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

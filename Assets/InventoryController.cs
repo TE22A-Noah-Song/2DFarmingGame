@@ -1,49 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryController : MonoBehaviour
 {
+    public Image[] InventorySlots;
+    public Sprite RedSquareSprite;
 
-    void Start()
-    {
-        
-    }
- public GameObject[] InventorySlots;
+    public int selectedSlotIndex = -1;
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        // Check for input to select slots
+        for (int i = 0; i < InventorySlots.Length; i++)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
             {
-                SelectSlot(0); // Slot 1
+                SelectSlot(i);
+                break; // Exit loop after selecting a slot
             }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                SelectSlot(1); // Slot 2
-            }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                SelectSlot(2); // Slot 3
-            }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-                SelectSlot(3); // Slot 4
-            }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-            {
-                SelectSlot(4); // Slot 5
-            }
-        
-
+        }
     }
 
     void SelectSlot(int index)
     {
-        //Intervall för inventory gränserna
+        // Välj nya sloten
         if (index >= 0 && index < InventorySlots.Length)
         {
-            // Perform actions to select the slot (e.g., change appearance, perform actions)
+            InventorySlots[index].sprite = RedSquareSprite;
+            selectedSlotIndex = index;
+
+
+            // debug vald slot
             Debug.Log("Selected slot " + (index + 1));
         }
     }
 }
-
