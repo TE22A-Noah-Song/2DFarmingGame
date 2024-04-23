@@ -8,7 +8,7 @@ public class InventoryController : MonoBehaviour
     public Image[] InventorySlots;
     public Sprite RedSquareSprite;
 
-    public int selectedSlotIndex = -1;
+    private int selectedSlotIndex = -1;
 
     void Update()
     {
@@ -25,14 +25,23 @@ public class InventoryController : MonoBehaviour
 
     void SelectSlot(int index)
     {
-        // Välj nya sloten
+        // Deselect previous slot if one was selected
+        if (selectedSlotIndex != -1)
+        {
+            // Reset color only if it's not the currently selected slot
+            if(selectedSlotIndex != index)
+            {
+                InventorySlots[selectedSlotIndex].color = Color.white;
+            }
+        }
+
+        // Select new slot
         if (index >= 0 && index < InventorySlots.Length)
         {
-            InventorySlots[index].sprite = RedSquareSprite;
+            InventorySlots[index].color = Color.red; // Highlight the selected slot
             selectedSlotIndex = index;
 
-
-            // debug vald slot
+            // Debug selected slot
             Debug.Log("Selected slot " + (index + 1));
         }
     }
